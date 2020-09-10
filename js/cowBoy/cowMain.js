@@ -13,6 +13,7 @@ export default class cowMain {
         that.switchPage(type)
     }
     constructor() {
+        this.aniId    = 0
         ctx = canvas.getContext('2d')
         splash = new Splash(ctx,canvas)
         splash.setChangeCallBack(this.callBack)
@@ -33,9 +34,23 @@ export default class cowMain {
             console.log("xu",'onTouchEnd'+res.changedTouches)
             this.curPage.touch(1,res)
         })
+        this.loop=this.loopF.bind(this)
+        // 清除上一局的动画
+        window.cancelAnimationFrame(this.aniId);
+
+        this.aniId = window.requestAnimationFrame(this.loop)
     }
 
 
+    loopF()
+    {
+        this.renderAll()
+        this.aniId = window.requestAnimationFrame(this.loop)
+    }
+    renderAll()
+    {
+        this.curPage.render()
+    }
     switchPage(index) {
         if (index == 0) {
             this.curPage=splash

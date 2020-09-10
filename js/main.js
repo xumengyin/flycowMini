@@ -171,8 +171,7 @@ export default class Main {
     this.render()
 
     this.aniId = window.requestAnimationFrame(
-      this.bindLoop,
-      canvas
+      this.bindLoop
     )
   }
 }

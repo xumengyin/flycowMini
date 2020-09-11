@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75a73ab0-1b55-4011-a423-2a88854b7440" name="Default Changelist" comment="" />
+    <list default="true" id="75a73ab0-1b55-4011-a423-2a88854b7440" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1hFzy5FsURKs0L7K78PRAeLMVLW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +29,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/js/cowBoy/sprite" />
   </component>
@@ -41,17 +49,45 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599621879274</updated>
-      <workItem from="1599621883993" duration="18649000" />
+      <workItem from="1599621883993" duration="45179000" />
     </task>
+    <task id="LOCAL-00001" summary="bug">
+      <created>1599733089531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599733089531</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="294" y="48" key="CommitChangelistDialog2" timestamp="1599733088434">
+      <screen x="0" y="0" width="1378" height="900" />
+    </state>
+    <state x="294" y="48" key="CommitChangelistDialog2/0.0.1378.900@0.0.1378.900" timestamp="1599733088434" />
+    <state x="414" y="185" width="540" height="524" key="StructurePopup" timestamp="1599727623081">
+      <screen x="0" y="0" width="1378" height="900" />
+    </state>
+    <state x="414" y="185" width="540" height="524" key="StructurePopup/0.0.1378.900@0.0.1378.900" timestamp="1599727623081" />
+    <state x="285" y="187" key="Vcs.Push.Dialog.v2" timestamp="1599733094410">
+      <screen x="0" y="0" width="1378" height="900" />
+    </state>
+    <state x="285" y="187" key="Vcs.Push.Dialog.v2/0.0.1378.900@0.0.1378.900" timestamp="1599733094410" />
     <state x="386" y="192" width="709" height="516" key="find.popup" timestamp="1599637976912">
       <screen x="0" y="0" width="1378" height="900" />
     </state>
     <state x="386" y="192" width="709" height="516" key="find.popup/0.0.1378.900@0.0.1378.900" timestamp="1599637976912" />
+    <state x="352" y="192" width="672" height="678" key="search.everywhere.popup" timestamp="1599720595425">
+      <screen x="0" y="0" width="1378" height="900" />
+    </state>
+    <state x="352" y="192" width="672" height="678" key="search.everywhere.popup/0.0.1378.900@0.0.1378.900" timestamp="1599720595425" />
   </component>
 </project>

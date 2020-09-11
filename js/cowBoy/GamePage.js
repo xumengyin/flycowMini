@@ -59,7 +59,7 @@ export default class GamePage extends basePage {
         }else
         {
             this.drawPic()
-            endDialog.setScore(this.points)
+            endDialog.setScore(points)
             endDialog.draw(this.canvasCtx)
         }
     }

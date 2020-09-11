@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75a73ab0-1b55-4011-a423-2a88854b7440" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/cowBoy/Utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Obstacle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Wood.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/GamePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/GamePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/cowMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/cowMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/sprite/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/sprite/Cow.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Cow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/sprite/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/sprite/Spider.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Spider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cowBoy/sprite/Sprite.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cowBoy/sprite/Sprite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +60,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599621879274</updated>
-      <workItem from="1599621883993" duration="45179000" />
+      <workItem from="1599621883993" duration="45278000" />
+      <workItem from="1599785476102" duration="8545000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <created>1599733089531</created>
@@ -58,7 +70,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599733089531</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bug">
+      <created>1599785211939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599785211939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="bug">
+      <created>1599785284791</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599785284791</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,22 +95,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="294" y="48" key="CommitChangelistDialog2" timestamp="1599785211526">
+    <state x="294" y="48" key="CommitChangelistDialog2" timestamp="1599795655970">
       <screen x="0" y="0" width="1378" height="900" />
     </state>
-    <state x="294" y="48" key="CommitChangelistDialog2/0.0.1378.900@0.0.1378.900" timestamp="1599785211526" />
+    <state x="294" y="48" key="CommitChangelistDialog2/0.0.1378.900@0.0.1378.900" timestamp="1599795655970" />
     <state x="414" y="185" width="540" height="524" key="StructurePopup" timestamp="1599727623081">
       <screen x="0" y="0" width="1378" height="900" />
     </state>
     <state x="414" y="185" width="540" height="524" key="StructurePopup/0.0.1378.900@0.0.1378.900" timestamp="1599727623081" />
-    <state x="285" y="187" key="Vcs.Push.Dialog.v2" timestamp="1599785233570">
+    <state x="285" y="187" key="Vcs.Push.Dialog.v2" timestamp="1599795661992">
       <screen x="0" y="0" width="1378" height="900" />
     </state>
-    <state x="285" y="187" key="Vcs.Push.Dialog.v2/0.0.1378.900@0.0.1378.900" timestamp="1599785233570" />
-    <state x="386" y="192" width="709" height="516" key="find.popup" timestamp="1599637976912">
+    <state x="285" y="187" key="Vcs.Push.Dialog.v2/0.0.1378.900@0.0.1378.900" timestamp="1599795661992" />
+    <state x="386" y="192" width="709" height="516" key="find.popup" timestamp="1599789906013">
       <screen x="0" y="0" width="1378" height="900" />
     </state>
-    <state x="386" y="192" width="709" height="516" key="find.popup/0.0.1378.900@0.0.1378.900" timestamp="1599637976912" />
+    <state x="386" y="192" width="709" height="516" key="find.popup/0.0.1378.900@0.0.1378.900" timestamp="1599789906013" />
+    <state x="349" y="203" key="run.anything.popup" timestamp="1599791781870">
+      <screen x="0" y="0" width="1378" height="900" />
+    </state>
+    <state x="349" y="203" key="run.anything.popup/0.0.1378.900@0.0.1378.900" timestamp="1599791781870" />
     <state x="352" y="192" width="672" height="678" key="search.everywhere.popup" timestamp="1599720595425">
       <screen x="0" y="0" width="1378" height="900" />
     </state>

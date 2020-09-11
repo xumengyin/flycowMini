@@ -6,6 +6,7 @@ export default class Background extends Sprite{
         super(res);
     }
     draw(ctx) {
+        super.draw(ctx)
         let factor=screenHeight/this.img.height
         if(-this.x>this.img.width)
         {
@@ -20,5 +21,7 @@ export default class Background extends Sprite{
         {
             ctx.drawImage(this.img,0,0,screenWidth/factor,this.img.height,endCanvas,0,screenWidth,screenHeight)
         }
+
+       // console.log("xuxu",'draw back:'+screenHeight+":"+screenWidth+"this.img.width:"+this.img.width+"--xx:"+this.x)
     }
 }

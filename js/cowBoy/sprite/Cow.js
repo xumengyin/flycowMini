@@ -6,6 +6,7 @@ export default class Cow extends Player{
         super("images/cow.png");
         this.colNr=8
         this.y=screenHeight/2
+        this.frameTime=3
 
     }
 

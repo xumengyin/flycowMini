@@ -11,7 +11,7 @@ export default class Player extends Sprite{
         this.x=canvas.width/6
         if(this.speedY<0)
         {
-            this.speedY=this.speedY*2/3+this.getSpeedTimeDecrease()
+            this.speedY=this.speedY*3/4+this.getSpeedTimeDecrease()/2
         }else
         {
             this.speedY+=this.getSpeedTimeDecrease()
@@ -25,11 +25,11 @@ export default class Player extends Sprite{
     }
     getSpeedTimeDecrease()
     {
-        return canvas.height/360
+        return canvas.height/320
     }
     getMaxSpeed()
     {
-        return canvas.height/80
+        return canvas.height/51.5
     }
 
     getTabSpeed()

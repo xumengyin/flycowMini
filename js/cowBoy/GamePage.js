@@ -70,7 +70,12 @@ export default class GamePage extends basePage {
         }
 
     }
+    checkPass()
+    {
+        obstacles.forEach((item)=>{
 
+        })
+    }
     drawMain() {
         this.move()
         backGround.draw(this.canvasCtx)
@@ -100,7 +105,7 @@ export default class GamePage extends basePage {
 
     getSpeedX()
     {
-        let defaultSpeed=this.canvas.width/45
+        let defaultSpeed=this.canvas.width/60
         let speedIncrease=this.canvas.width/600
         let speed=defaultSpeed+speedIncrease
         return Math.min(speed,defaultSpeed*2)

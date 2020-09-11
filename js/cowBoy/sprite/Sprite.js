@@ -1,3 +1,5 @@
+import {isEmpty} from "../Utils";
+
 export const screenWidth = window.innerWidth
 export const screenHeight = window.innerHeight
 export const adapterW = 720
@@ -7,14 +9,24 @@ export default class Sprite {
     constructor(res) {
         this.height = 0
         this.width = 0  // 宽高
-        this.img = wx.createImage()
-        this.img.src = res
-        this.img.onload = ((res) => {
-            this.width = this.img.width
-            this.height = this.img.height
-            //有的图片需要切割
-            this.onImgMeasure()
-        })
+        if (!isEmpty(res))
+        {
+            console.log("xuxu","Sprite res"+res)
+            this.img = wx.createImage()
+            this.img.src = res
+            this.img.onload = ((res) => {
+                this.width = this.img.width
+                this.height = this.img.height
+                console.log(res)
+                console.log("xuxu","onload res"+res+"width:"+this.img.width+"height:"+this.img.height)
+                //有的图片需要切割
+                this.onImgMeasure()
+            })
+            this.img.onerror=((res)=>{
+                console.log("xuxu",'xuxu on error'+res.message)
+                console.log(res)
+            })
+        }
         this.x = 0 //坐标
         this.y = 0
 
@@ -43,7 +55,10 @@ export default class Sprite {
     }
 
     draw(ctx) {
-
+        if(this.width==0||this.height==0)
+        {
+            return
+        }
     }
 
     move() {
@@ -57,5 +72,10 @@ export default class Sprite {
 
     setSpeedY(speed) {
         this.speedY = speed
+    }
+    //通过障碍
+    isPassed()
+    {
+        return true
     }
 }

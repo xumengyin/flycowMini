@@ -37,7 +37,7 @@ export default class cowMain {
         this.loop=this.loopF.bind(this)
         // 清除上一局的动画
         window.cancelAnimationFrame(this.aniId);
-
+        wx.setPreferredFramesPerSecond(25)
         this.aniId = window.requestAnimationFrame(this.loop)
     }
 

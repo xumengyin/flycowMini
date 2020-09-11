@@ -46,5 +46,10 @@ export default class Cow extends Player{
         this.speedY=this.getTabSpeed()
         this.y+=this.getPosTabIncrease()
     }
+    dead() {
+        this.row=3
+        this.frameTime=3
+        super.dead();
+    }
 
 }

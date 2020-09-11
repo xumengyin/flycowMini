@@ -4,6 +4,7 @@ export default class Player extends Sprite{
 
     constructor(res) {
         super(res);
+        this.isDead=false
         this.move()
     }
     move() {
@@ -39,5 +40,10 @@ export default class Player extends Sprite{
     getPosTabIncrease()
     {
         return -canvas.height/100
+    }
+    dead()
+    {
+        this.isDead=true
+        this.speedY=this.getMaxSpeed()/2
     }
 }

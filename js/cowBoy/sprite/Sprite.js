@@ -78,4 +78,43 @@ export default class Sprite {
     {
         return true
     }
+    isOutOfRange()
+    {
+        return this.x+this.width*scaleFactor<0
+    }
+
+    isTouchEdge()
+    {
+        return this.isTouchGround()||this.isTouchSky()
+    }
+    isTouchGround()
+    {
+        return this.y+this.height*scaleFactor>canvas.height
+    }
+    isTouchSky()
+    {
+        return this.y<0
+    }
+    isColliding(sprite)
+    {
+        if(this.x+this.getCollisionTolerance()<sprite.x+sprite.width*scaleFactor
+        &&this.x+this.width>sprite.x+this.getCollisionTolerance()
+        &&this.y+this.getCollisionTolerance()<sprite.y+sprite.height*scaleFactor
+            &&this.y+this.height*scaleFactor>sprite.y+this.getCollisionTolerance()
+        )
+        {
+            return true
+        }
+        return false
+    }
+    //图片边缘有透明
+    getCollisionTolerance()
+    {
+        //先这样定吧
+        return canvas.height/50
+    }
+    onCollision()
+    {
+
+    }
 }

@@ -1,4 +1,4 @@
-import Sprite from "./Sprite";
+import Sprite, {scaleFactor} from "./Sprite";
 
 export default class Player extends Sprite{
 
@@ -45,5 +45,12 @@ export default class Player extends Sprite{
     {
         this.isDead=true
         this.speedY=this.getMaxSpeed()/2
+    }
+    revive()
+    {
+        this.isDead = false;
+        this.row = 0;
+        this.x=canvas.width/6
+        this.y=canvas.height/2-this.width*scaleFactor
     }
 }

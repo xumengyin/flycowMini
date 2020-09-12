@@ -4,7 +4,7 @@ import Background from "./Background";
 export default class Frontground extends Background{
 
     constructor() {
-        super("images/fg.png");
+        super("images/fg2.png");
     }
     // draw(ctx) {
     //     let factor=screenHeight/this.img.height

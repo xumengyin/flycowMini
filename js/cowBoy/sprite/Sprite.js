@@ -98,7 +98,7 @@ export default class Sprite {
     isColliding(sprite)
     {
         if(this.x+this.getCollisionTolerance()<sprite.x+sprite.width*scaleFactor
-        &&this.x+this.width>sprite.x+this.getCollisionTolerance()
+        &&this.x+this.width*scaleFactor>sprite.x+this.getCollisionTolerance()
         &&this.y+this.getCollisionTolerance()<sprite.y+sprite.height*scaleFactor
             &&this.y+this.height*scaleFactor>sprite.y+this.getCollisionTolerance()
         )
@@ -114,6 +114,10 @@ export default class Sprite {
         return canvas.height/50
     }
     onCollision()
+    {
+
+    }
+    reset()
     {
 
     }

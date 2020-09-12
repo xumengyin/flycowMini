@@ -10,6 +10,13 @@ export default class Cow extends Player{
 
     }
 
+    reset() {
+        this.y=screenHeight/2
+        this.frameTime=3
+        this.row=0
+        this.col=0
+    }
+
     onImgMeasure()
     {
         this.width=this.img.width/this.colNr
@@ -51,5 +58,6 @@ export default class Cow extends Player{
         this.frameTime=3
         super.dead();
     }
+
 
 }

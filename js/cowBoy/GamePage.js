@@ -6,7 +6,9 @@ import PauseBtn from "./sprite/PauseBtn";
 import Cow from "./sprite/Cow";
 import Spider from "./sprite/Spider";
 import Obstacle from "./sprite/Obstacle";
-import EndDialog from "./sprite/EndDialog";
+import Coin from "./sprite/Coin";
+import EndDialog, {reviveCoin} from "./sprite/EndDialog";
+import {savePoint,saveCoin,getCoin} from "./Utils";
 
 const status_start = 0
 const status_play = 1
@@ -20,6 +22,7 @@ let obstacles = [] //障碍物
 let powerUps = []  //金币
 let points=0
 let coins=0
+let reviveNum=1
 let endDialog=new EndDialog()
 export default class GamePage extends basePage {
 
@@ -35,6 +38,7 @@ export default class GamePage extends basePage {
         pauseBtn = new PauseBtn()
         cow = new Cow()
         spider = new Spider()
+        coins=getCoin()
     }
 
     render() {
@@ -60,6 +64,8 @@ export default class GamePage extends basePage {
         {
             this.drawPic()
             endDialog.setScore(points)
+           // endDialog.setScore(points)
+            endDialog.setRevive(reviveNum)
             endDialog.draw(this.canvasCtx)
         }
     }
@@ -89,8 +95,38 @@ export default class GamePage extends basePage {
                 }else if(curStatus==status_pause)
                 {
                     this.switchStatus(status_play)
+                }else if(curStatus==status_fail)
+                {
+                    if(endDialog.isRepeat(pageX,pageY))
+                    {
+                        saveCoin(coins)
+                        this.switchStatus(status_start)
+                    }else if(endDialog.isRevive(pageX,pageY))
+                    {
+                        this.playerRevive()
+                    }
                 }
             }
+        }
+
+    }
+
+    playerRevive()
+    {
+        if(reviveNum*reviveCoin<coins)
+        {
+            coins=coins-reviveNum*reviveCoin
+            reviveNum++
+            cow.revive()
+            obstacles=[]
+            powerUps=[]
+            this.switchStatus(status_play)
+        }else
+        {
+            wx.showToast({
+                icon:'none',
+                title:'你在为难我,金币不够哦'
+            })
         }
 
     }
@@ -122,9 +158,15 @@ export default class GamePage extends basePage {
             obstacles.push(o)
         }
     }
+    isGameOvwe()
+    {
+        return curStatus==status_fail
+    }
     checkCollision()
     {
-
+        if (this.isGameOvwe()) {
+            return
+        }
         for (let i = 0; i < obstacles.length; i++) {
             if(obstacles[i].isColliding(cow))
             {
@@ -139,6 +181,7 @@ export default class GamePage extends basePage {
                 powerUps[i].onCollision()
                 powerUps.splice(i,1)
                 i--
+                coins++
             }
         }
 
@@ -152,6 +195,9 @@ export default class GamePage extends basePage {
         console.log('xuxu','game over')
         cow.dead()
         this.switchStatus(status_fail)
+        saveCoin(coins)
+        savePoint(points)
+      
     }
     pause()
     {
@@ -165,11 +211,23 @@ export default class GamePage extends basePage {
                     if(!item.isAlreadyPassed)
                     {
                         item.onPass()
+                        points=parseInt(points+Math.random()*10+1)
+                        this.createCoin()
                         //增加得分
                         //播放音效
                     }
                 }
         })
+    }
+    createCoin()
+    {
+
+        if((powerUps.length < 1) && (Math.random()*100 < 100)){
+            // If no powerUp is present and 20% chance
+            let coin=new Coin()
+            coin.setSpeedX(-this.getSpeedX())
+            powerUps.push(coin);
+        }
     }
     drawMain() {
         this.checkPass()
@@ -184,13 +242,14 @@ export default class GamePage extends basePage {
         backGround.draw(this.canvasCtx)
         frontground.draw(this.canvasCtx)
         pauseBtn.draw(this.canvasCtx)
-        cow.draw(this.canvasCtx)
+
         obstacles.forEach((item)=>{
             item.draw(this.canvasCtx)
         })
         powerUps.forEach((item)=>{
             item.draw(this.canvasCtx)
         })
+        cow.draw(this.canvasCtx)
         this.drawText()
 
     }
@@ -222,6 +281,11 @@ export default class GamePage extends basePage {
         //backGround.move()
         backGround.draw(this.canvasCtx)
         frontground.draw(this.canvasCtx)
+        cow.reset()
+        points=0
+        reviveNum=1
+        obstacles=[]
+        powerUps=[]
         cow.draw(this.canvasCtx)
         tip.move()
         tip.draw(this.canvasCtx)
@@ -231,7 +295,7 @@ export default class GamePage extends basePage {
     getSpeedX()
     {
         let defaultSpeed=this.canvas.width/60
-        let speedIncrease=this.canvas.width/600
+        let speedIncrease=this.canvas.width/600*(points/6)
         let speed=defaultSpeed+speedIncrease
         return Math.min(speed,defaultSpeed*2)
     }

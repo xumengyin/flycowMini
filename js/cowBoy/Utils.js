@@ -36,10 +36,15 @@ function getCoin()
 
     return score
 }
+function getStatusBar()
+{
+   return wx.getSystemInfoSync().statusBarHeight
+}
 module.exports={
     isEmpty,
     savePoint,
     saveCoin,
     getMaxP,
-    getCoin
+    getCoin,
+    getStatusBar
 }

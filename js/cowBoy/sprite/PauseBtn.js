@@ -1,4 +1,5 @@
 import Sprite, {scaleFactor, screenWidth} from "./Sprite";
+import {getStatusBar} from "../Utils";
 
 export default class PauseBtn extends Sprite{
 
@@ -10,7 +11,7 @@ export default class PauseBtn extends Sprite{
     }
     move() {
         this.x=screenWidth-this.width*scaleFactor
-        this.y=48
+        this.y=getStatusBar()+30
     }
 
     isInPauseArea(x,y)

@@ -8,7 +8,8 @@ import Spider from "./sprite/Spider";
 import Obstacle from "./sprite/Obstacle";
 import Coin from "./sprite/Coin";
 import EndDialog, {reviveCoin} from "./sprite/EndDialog";
-import {savePoint,saveCoin,getCoin} from "./Utils";
+import {savePoint,saveCoin,getCoin,getStatusBar} from "./Utils";
+import VoiceUtil from "./sprite/VoiceUtil";
 
 const status_start = 0
 const status_play = 1
@@ -24,6 +25,8 @@ let points=0
 let coins=0
 let reviveNum=1
 let endDialog=new EndDialog()
+let voice=new VoiceUtil()
+let statusBar=0
 export default class GamePage extends basePage {
 
     constructor(ctx, canvas) {
@@ -39,6 +42,7 @@ export default class GamePage extends basePage {
         cow = new Cow()
         spider = new Spider()
         coins=getCoin()
+        statusBar=getStatusBar()
     }
 
     render() {
@@ -91,6 +95,7 @@ export default class GamePage extends basePage {
                     }else
                     {
                         cow.tab()
+                        voice.playTab()
                     }
                 }else if(curStatus==status_pause)
                 {
@@ -113,7 +118,7 @@ export default class GamePage extends basePage {
 
     playerRevive()
     {
-        if(reviveNum*reviveCoin<coins)
+        if(reviveNum*reviveCoin<=coins)
         {
             coins=coins-reviveNum*reviveCoin
             reviveNum++
@@ -171,6 +176,7 @@ export default class GamePage extends basePage {
             if(obstacles[i].isColliding(cow))
             {
                 obstacles[i].onCollision()
+                voice.playCrash()
                 this.gameOver()
                 break
             }
@@ -182,6 +188,7 @@ export default class GamePage extends basePage {
                 powerUps.splice(i,1)
                 i--
                 coins++
+                voice.playCoin()
             }
         }
 
@@ -213,6 +220,7 @@ export default class GamePage extends basePage {
                         item.onPass()
                         points=parseInt(points+Math.random()*10+1)
                         this.createCoin()
+                        voice.playPass()
                         //增加得分
                         //播放音效
                     }
@@ -257,7 +265,7 @@ export default class GamePage extends basePage {
     drawText()
     {
         this.canvasCtx.font='24px bold 黑体'
-        this.canvasCtx.fillText('得分:'+points+'/'+"金币:"+coins,20,40)
+        this.canvasCtx.fillText('得分:'+points+'/'+"金币:"+coins,20,statusBar+50)
     }
     move()
     {

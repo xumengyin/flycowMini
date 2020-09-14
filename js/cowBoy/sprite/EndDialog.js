@@ -46,6 +46,12 @@ export default class EndDialog extends Sprite{
         this.reviveY=y1+120
         this.reviveHeight=40
         ctx.fillRect(this.reviveX,this.reviveY,this.reviveWidth,this.reviveHeight)
+        //分享
+        this.shareWidth=160
+        this.shareX=(screenWidth-this.shareWidth)/2
+        this.shareY=y1+180
+        this.shareHeight=40
+        ctx.fillRect(this.shareX,this.shareY,this.shareWidth,this.shareHeight)
         ctx.fillStyle="#fff"
         let text3="再来一次"
         let text3Width=ctx.measureText(text3).width
@@ -53,6 +59,9 @@ export default class EndDialog extends Sprite{
         let text4="复活需要"+this.reviveNum*reviveCoin+"金币"
         let text4Width=ctx.measureText(text4).width
         ctx.fillText(text4,(screenWidth-text4Width)/2,y1+150)
+        let text5="分享"
+        let text5Width=ctx.measureText(text5).width
+        ctx.fillText(text5,(screenWidth-text5Width)/2,y1+210)
 
     }
 
@@ -78,6 +87,15 @@ export default class EndDialog extends Sprite{
     {
         if(x>this.reviveX&&x<this.reviveX+this.reviveWidth
         &&y>this.reviveY&&y<this.reviveY+this.reviveHeight)
+        {
+            return true
+        }
+        return false
+    }
+    isShare(x,y)
+    {
+        if(x>this.shareX&&x<this.shareX+this.shareWidth
+            &&y>this.shareY&&y<this.shareY+this.shareHeight)
         {
             return true
         }

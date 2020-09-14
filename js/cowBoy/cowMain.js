@@ -39,6 +39,13 @@ export default class cowMain {
         window.cancelAnimationFrame(this.aniId);
         wx.setPreferredFramesPerSecond(25)
         this.aniId = window.requestAnimationFrame(this.loop)
+        wx.showShareMenu()
+        wx.onShareAppMessage(function () {
+            // 用户点击了“转发”按钮
+            return {
+                title: '来吧牛仔,一起来闯关拯救公主吧！'
+            }
+        })
     }
 
 

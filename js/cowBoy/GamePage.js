@@ -8,7 +8,7 @@ import Spider from "./sprite/Spider";
 import Obstacle from "./sprite/Obstacle";
 import Coin from "./sprite/Coin";
 import EndDialog, {reviveCoin} from "./sprite/EndDialog";
-import {savePoint,saveCoin,getCoin,getStatusBar} from "./Utils";
+import {savePoint, saveCoin, getCoin, getStatusBar, postScore,share} from "./Utils";
 import VoiceUtil from "./sprite/VoiceUtil";
 
 const status_start = 0
@@ -104,11 +104,15 @@ export default class GamePage extends basePage {
                 {
                     if(endDialog.isRepeat(pageX,pageY))
                     {
+                        postScore(points)
                         saveCoin(coins)
                         this.switchStatus(status_start)
                     }else if(endDialog.isRevive(pageX,pageY))
                     {
                         this.playerRevive()
+                    }else if(endDialog.isShare(pageX,pageY))
+                    {
+                        share(points)
                     }
                 }
             }
@@ -230,7 +234,7 @@ export default class GamePage extends basePage {
     createCoin()
     {
 
-        if((powerUps.length < 1) && (Math.random()*100 < 100)){
+        if((powerUps.length < 1) && (Math.random()*100 < 20)){
             // If no powerUp is present and 20% chance
             let coin=new Coin()
             coin.setSpeedX(-this.getSpeedX())
@@ -307,4 +311,5 @@ export default class GamePage extends basePage {
         let speed=defaultSpeed+speedIncrease
         return Math.min(speed,defaultSpeed*2)
     }
+
 }
